@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
-        viewpager.adapter = ViewPagerAdapter(this)
+        viewpager.adapter = ViewPagerAdapter()
         indicator.setViewPager(viewpager)
         swipeViewPager()
     }

@@ -10,9 +10,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name="com.example.android.slider.HActivity">
         </activity>
         <activity android:name="com.example.android.slider.MainActivity">
+        </activity>
+        <activity android:name="com.example.android.slider.ui.splash.SplashUi">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

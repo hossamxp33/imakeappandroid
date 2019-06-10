@@ -18,11 +18,11 @@ import com.example.android.slider.databinding.ViewpagerimageBinding
 
 
 
-class ViewPagerAdapter(val context: Context):PagerAdapter() {
+class ViewPagerAdapter():PagerAdapter() {
 
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val binding:ViewpagerimageBinding=DataBindingUtil.inflate(
+       val binding:ViewpagerimageBinding=DataBindingUtil.inflate(
             LayoutInflater.from(container.context),
             R.layout.viewpagerimage,
             container,
@@ -30,6 +30,10 @@ class ViewPagerAdapter(val context: Context):PagerAdapter() {
         )
 
         container.addView(binding.root)
+        binding.root.setOnClickListener {
+            val intent = Intent(binding.root.context, HActivity::class.java)
+            binding.root.context.startActivity(intent)
+        }
         return binding.root
     }
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
