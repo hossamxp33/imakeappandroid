@@ -18,6 +18,7 @@
             android:id="@+id/indicator"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+
             app:layout_constraintStart_toEndOf="@+id/skip_text" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toStartOf="@+id/nextImage" android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="@+id/slidwershowViewPager"
@@ -26,11 +27,16 @@
             android:text="@string/slider_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+              android:textColor="@color/blue"
+            android:id="@+id/skip_text" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:textSize="25sp"
 
-            android:id="@+id/skip_text" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/slidwershowViewPager"/>
+            app:layout_constraintBottom_toBottomOf="@+id/slidwershowViewPager"
+            android:layout_marginBottom="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/indicator"/>
     <ImageView
-            app:srcCompat="@drawable/ic_chevron_right_black_24dp"
+            app:srcCompat="@drawable/ic_chevron_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/nextImage" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"

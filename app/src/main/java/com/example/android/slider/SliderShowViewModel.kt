@@ -8,10 +8,6 @@ import com.bumptech.glide.Glide
 import android.widget.ImageView
 import java.util.*
 
-@BindingAdapter("app:imageResource")
-fun setImageResource(imageView: ImageView?,resource:String) {
-    Glide.with(imageView?.context!!).load(resource).into(imageView)
-}
 class SliderShowViewModel():ViewModel(){
     var viewPager: MutableLiveData<Int>?=null
     init {

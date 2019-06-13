@@ -15,7 +15,7 @@ class SliderShow : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_slider)
-        slidwershowViewPager.adapter=SliderViewPagerAdapter()
+        slidwershowViewPager.adapter=SliderViewPagerAdapter(this)
         indicator.setViewPager(slidwershowViewPager)
         viewModel = ViewModelProviders.of(this).get(SliderShowViewModel::class.java)
         viewModel.swipeViewPager()

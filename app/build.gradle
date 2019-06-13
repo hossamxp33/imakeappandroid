@@ -29,9 +29,7 @@ android {
         enabled = true
     }
 }
-repositories {
-    maven { url 'https://maven.google.com' }
-}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
