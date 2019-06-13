@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Slider_3</string>
     <string name="title">CHAISE</string>
+    <string name="slider_show">Skip</string>
 </resources>

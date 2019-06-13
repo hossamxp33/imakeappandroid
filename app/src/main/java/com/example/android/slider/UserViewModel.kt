@@ -3,19 +3,39 @@ package com.example.android.slider
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.databinding.Bindable
 import android.databinding.BindingAdapter
-import android.support.v4.util.Consumer
+import android.os.Handler
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.example.android.slider.datalayer.Repo.SplashRepo
-import com.example.android.slider.datalayer.usecases.SplashUsecase
+import java.util.*
 
-
+@BindingAdapter("app:imageResource")
+fun setImageResource(imageView: ImageView?, resource: String?) {
+ Glide.with(imageView?.context!!).load(resource).into(imageView)
+}
 
  class UserViewModel:ViewModel() {
+  var viewPager:MutableLiveData<Int>?=null
+init {
+ viewPager= MutableLiveData()
 
+}
+  fun swipeViewPager() {
+   val handler = Handler()
+   val update = Runnable() {
+    viewPager?.postValue(0)
 
+   }
+
+   val swipTimer = Timer()
+   swipTimer.schedule(object : TimerTask() {
+    override fun run() {
+     handler.post(update)
+    }
+   }
+    , 50, 3000)
+
+  }
 
 
 }

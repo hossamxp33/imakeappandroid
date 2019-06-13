@@ -6,6 +6,6 @@ data class SplashData (
 data class Splash_model(
     val id: Long,
     val photo: String,
-    val created: String? = null,
+    val created: String,
     val modified: String
 )
