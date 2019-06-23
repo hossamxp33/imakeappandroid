@@ -2,17 +2,13 @@ package com.example.android.slider
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.databinding.BindingAdapter
 import android.os.Handler
-import com.bumptech.glide.Glide
-import android.widget.ImageView
 import java.util.*
 
-class SliderShowViewModel():ViewModel(){
+class HomeViewModel:ViewModel() {
     var viewPager: MutableLiveData<Int>?=null
     init {
-        viewPager= MutableLiveData()
-
+        viewPager=MutableLiveData()
     }
     fun swipeViewPager() {
         val handler = Handler()

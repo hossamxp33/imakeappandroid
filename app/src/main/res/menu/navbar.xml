@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/nav_more"
+            android:icon="@drawable/ic_more_horiz_black_24dp"
+            android:title="@string/more_icon"/>
+
+
+  <item android:id="@+id/nav_offers"
+        android:icon="@drawable/ic_money_off_black_24dp"
+        android:title="@string/offers_icon"/>
+    <item
+            android:id="@+id/nav_buy"
+            android:icon="@drawable/ic_add_shopping_cart_black_24dp"
+            android:title="@string/by_icon"/>
+    <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/home_icon" />
+</menu>

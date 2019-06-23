@@ -1,6 +1,4 @@
 package com.example.android.slider.datalayer.usecases
-
-
 import com.example.android.slider.models.splash.Splash_model
 
 

@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SliderShow">
+        tools:context=".ui.slidershow.SliderShow">
 
     <android.support.v4.view.ViewPager
             android:id="@+id/slidwershowViewPager"
@@ -18,7 +18,8 @@
             android:id="@+id/indicator"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-
+             app:ci_drawable="@color/blue"
+            app:ci_drawable_unselected="@color/black"
             app:layout_constraintStart_toEndOf="@+id/skip_text" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toStartOf="@+id/nextImage" android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="@+id/slidwershowViewPager"
@@ -37,8 +38,8 @@
             app:layout_constraintTop_toTopOf="@+id/indicator"/>
     <ImageView
             app:srcCompat="@drawable/ic_chevron_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/nextImage" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/indicator" android:layout_marginBottom="8dp"/>
 </android.support.constraint.ConstraintLayout>
