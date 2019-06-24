@@ -33,7 +33,7 @@ companion object{
              .addInterceptor { chain ->
                  val originalRequest = chain.request()
                  val builder = originalRequest.newBuilder()
-                 builder.addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwOCwiZXhwIjoxNTYxMzcxMTc1fQ.tuzqiz53je7cvfv54sqFRTcYOabIG-du-5sKnZ60Hqw")
+                 builder.addHeader("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIxMywiZXhwIjoxNTYxOTc4Njk5fQ.bHgLGU5IyvMlmAqagMiX9ZPBe-dEzrD_D9_P8jvVDUI")
                  val newRequest = builder.build()
                   chain.proceed(newRequest)
              }

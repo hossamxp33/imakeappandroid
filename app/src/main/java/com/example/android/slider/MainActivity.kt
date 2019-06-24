@@ -1,5 +1,6 @@
 package com.example.android.slider
 import android.content.Intent
+import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -9,9 +10,7 @@ import com.example.android.slider.ui.splash.SplashUi
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 
-
-
-
+import com.example.android.slider.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity(),Serializable {
@@ -26,8 +25,13 @@ class MainActivity : AppCompatActivity(),Serializable {
 
         val intent: Intent? = getIntent()
         // val bundle:Bundle?=getIntent()?.extras
-      //  settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as List<SettingsUseCase>
-       // print(settings_data)
+      settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as List<SettingsUseCase>
+      print(settings_data!!.get(0).background)
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+
+        binding.settingusecase = settings_data
+        binding.executePendingBindings()
 
     }
     //add navigation button
