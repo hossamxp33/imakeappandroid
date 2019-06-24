@@ -24,12 +24,8 @@ class MainActivity : AppCompatActivity(),Serializable {
         buttomNavigationView.setSelectedItemId(R.id.nav_home)
 
         val intent: Intent? = getIntent()
-        // val bundle:Bundle?=getIntent()?.extras
-      settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as List<SettingsUseCase>
-      print(settings_data!!.get(0).background)
+       settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as List<SettingsUseCase>
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-
         binding.settingusecase = settings_data
         binding.executePendingBindings()
 

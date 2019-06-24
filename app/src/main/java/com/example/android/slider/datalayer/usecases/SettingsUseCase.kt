@@ -6,7 +6,7 @@ import java.io.Serializable
 data class SettingsUseCase(val settings: SettingsModelData?=null):Serializable  {
 
     var settingData: SettingsModelData?=null
-    var background: String? = null
+    var background: String? = "#fff"
     var red: String? = null
     var green: String? = null
     var blue: String? = null
