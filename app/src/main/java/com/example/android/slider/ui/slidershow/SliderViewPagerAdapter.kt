@@ -1,9 +1,9 @@
 package com.example.android.slider.ui.slidershow
 
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.support.constraint.ConstraintLayout
-import android.support.v4.view.PagerAdapter
+import androidx.databinding.DataBindingUtil
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.viewpager.widget.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,8 @@ import com.example.android.slider.datalayer.usecases.SplashUsecase
 import com.example.android.slider.models.slideshow.SlidersModelData
 import com.squareup.picasso.Picasso
 
-class SliderViewPagerAdapter(val context: Context ,val showModel: List<SplashUsecase>?):PagerAdapter(){
+class SliderViewPagerAdapter(val context: Context ,val showModel: List<SplashUsecase>?):
+    PagerAdapter(){
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 

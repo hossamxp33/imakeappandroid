@@ -1,7 +1,7 @@
 package com.example.android.slider.datalayer.Repo
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.android.slider.datalayer.apiservices.APIServices
 import com.example.android.slider.datalayer.usecases.SettingsUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers

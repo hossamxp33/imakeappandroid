@@ -29,6 +29,7 @@ data class SettingsUseCase(val settings: SettingsModelData?=null):Serializable  
     var fontBlue: String? = null
     var title:String?=null
     var fontfamily: String? = null
+    var slider_template: String? = null
 
 
     //  var slideshow: String? = null
@@ -44,8 +45,7 @@ settingData = settings
      logo=settingData!!.data.logo
      rightIcon=settingData!!.data.rightIcon
      leftIcon=settingData!!.data.leftIcon
-
-
+     slider_template = "1"
  }else{}
 if(settings?.type=="footer"){
     border=settingData!!.data.border

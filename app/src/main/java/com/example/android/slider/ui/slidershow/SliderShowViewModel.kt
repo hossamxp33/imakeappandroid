@@ -1,7 +1,7 @@
 package com.example.android.slider.ui.slidershow
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import android.os.Handler
 import com.example.android.slider.datalayer.Repo.SplashRepo
 import com.example.android.slider.datalayer.usecases.SliderShowUseCase

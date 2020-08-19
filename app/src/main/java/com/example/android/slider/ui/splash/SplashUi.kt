@@ -1,17 +1,15 @@
 package com.example.android.slider.ui.splash
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.support.annotation.RequiresApi
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.app.AppCompatActivity
-import com.example.android.slider.MainActivity
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import com.example.android.slider.presentation.MainActivity
 import com.example.android.slider.R
 import com.example.android.slider.ui.slidershow.SliderShow
 import com.example.android.slider.databinding.SplashLayoutBinding
@@ -19,7 +17,6 @@ import com.example.android.slider.datalayer.usecases.SettingsUseCase
 import com.example.android.slider.models.settings.SettingsModelData
 import com.example.android.slider.ui.settingviewmodel.SettingViewModel
 import java.io.Serializable
-import kotlin.collections.forEach as forEach1
 
 @SuppressLint("Registered")
 class SplashUi() :AppCompatActivity()
@@ -57,14 +54,14 @@ companion object{
         splashViewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
         settingsViewModel=ViewModelProviders.of(this).get(SettingViewModel::class.java)
         splashViewModel.getData()
-        splashViewModel.clientsResponseLD?.observe(this , android.arch.lifecycle.Observer {
+        splashViewModel.clientsResponseLD?.observe(this , androidx.lifecycle.Observer {
         binding.splash = it!!.get(0)
 
 
         })
 
         settingsViewModel.getSettings()
-        settingsViewModel.settingsResponse?.observe(this , android.arch.lifecycle.Observer {
+        settingsViewModel.settingsResponse?.observe(this , androidx.lifecycle.Observer {
             settingUseCse= it!!.get(0)
           settigs_data=it
            val bundle=Bundle()

@@ -1,6 +1,6 @@
 package com.example.android.slider.datalayer.usecases
 
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 import android.graphics.Color
 import android.view.ViewGroup
 import android.widget.ImageView

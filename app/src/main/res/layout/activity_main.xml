@@ -11,7 +11,7 @@
                 type="List&lt;com.example.android.slider.datalayer.usecases.SettingsUseCase &gt;"/>
 
     </data>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
     />
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/buttomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -48,5 +48,5 @@
 
 
     </FrameLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

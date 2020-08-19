@@ -1,12 +1,13 @@
-package com.example.android.slider
+package com.example.android.slider.presentation.moreframgent
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.android.slider.R
 
-class MoreFragment :Fragment(){
+class MoreFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view:View=inflater.inflate(R.layout.morefragment,container,false)
         return view

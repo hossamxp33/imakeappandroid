@@ -14,9 +14,8 @@
             android:theme="@style/AppTheme">
         <activity android:name="com.example.android.slider.ui.slidershow.SliderShow">
         </activity>
-        <activity android:name=".HActivity">
-        </activity>
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".presentation.MainActivity">
         </activity>
         <activity android:name=".ui.splash.SplashUi">
             <intent-filter>

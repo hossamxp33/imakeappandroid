@@ -7,30 +7,19 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="match_parent">
 
-            >
-<androidx.cardview.widget.CardView
-        android:id="@+id/image_sliderr"
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        app:cardCornerRadius="10dp">
         <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/image_slider"
-                android:background="@drawable/slider_round_corner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:scaleType="fitXY"
-                app:imageResource="@{`http://parashote.codesroots.com/library//slideshowphoto/15963117961023616007.jpg`}"
+                app:imageResource="@{`http://imakeapp.codesroots.com/assets/images/logo.png`}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-</androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

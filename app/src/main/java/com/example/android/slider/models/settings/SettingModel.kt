@@ -1,5 +1,6 @@
 package com.example.android.slider.models.settings
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
@@ -18,7 +19,9 @@ data class SettingData (
     val green: String? = null,
     val blue: String? = null,
     val logo: String? = null,
+    @SerializedName("right_icon")
     val rightIcon: String? = null,
+    @SerializedName("left_icon")
     val leftIcon: String? = null,
     val border: String? = null,
     val shadow: String? = null,
@@ -37,5 +40,6 @@ data class SettingData (
     val title: String? = null,
     val fontcolor: String? = null,
     val fontfamily: String? = null,
-    val slideshow: String? = null
+    val slideshow: String? = null,
+    val slider_template: String? = null
 ):Serializable

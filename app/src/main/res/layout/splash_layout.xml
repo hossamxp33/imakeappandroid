@@ -3,9 +3,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="splash" type="com.example.android.slider.datalayer.usecases.SplashUsecase"/>
+        <variable name="splash"
+                type="com.example.android.slider.datalayer.usecases.SplashUsecase"/>
     </data>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 <ImageView
@@ -13,6 +14,6 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
            android:layout_height="match_parent"
-app:imageResource="@{splash.photo}"/>
-</android.support.constraint.ConstraintLayout>
+             app:imageResource="@{splash.photo}"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
