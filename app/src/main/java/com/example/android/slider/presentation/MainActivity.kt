@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.android.slider.*
 import com.example.android.slider.datalayer.usecases.SettingsUseCase
 import com.example.android.slider.ui.splash.SplashUi
@@ -22,40 +23,62 @@ class MainActivity : AppCompatActivity(),Serializable {
 
     var settings_data: List<SettingsUseCase>? = null
     lateinit var viewModel: UserViewModel
+    lateinit var homeFragment: HomeFragment
+
+    lateinit var moreFragment: MoreFragment
+
+    lateinit var buyFragment: BuyFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-       buttomNavigationView.setOnNavigationItemSelectedListener ( listener)
-        buttomNavigationView.setSelectedItemId(R.id.nav_home)
+       buttomNavigationView.setOnNavigationItemSelectedListener (mOnNavigationItemSelectedListener)
 
         val intent: Intent? = getIntent()
        settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as List<SettingsUseCase>
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this,
             R.layout.activity_main
+
         )
+        if (savedInstanceState == null) {
+          val  homeFragment = HomeFragment()
+            val bundle = Bundle()
+
+            bundle.putSerializable("data", settings_data  as Serializable)
+            homeFragment!!.arguments = bundle
+            supportFragmentManager.beginTransaction().replace(R.id.fragment, homeFragment)
+                .commit()
+        }
         binding.settingusecase = settings_data
         binding.executePendingBindings()
 
     }
     //add navigation button
-    private val listener =
-        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
-            var selectFragment: Fragment? = null
-            when (menuItem.itemId) {
-                R.id.nav_home -> selectFragment =
-                    HomeFragment()
-                R.id.nav_buy -> selectFragment =
-                    BuyFragment()
-                R.id.nav_more -> selectFragment =
-                    MoreFragment()
-                R.id.nav_offers ->selectFragment=
-                    OffersFragment()
+
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+        when (menuItem.itemId) {
+            R.id.nav_home -> {
+              homeFragment = HomeFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.fragment, homeFragment)
+                    .commit()
+                return@OnNavigationItemSelectedListener true
             }
-            assert(selectFragment != null)
-            supportFragmentManager.beginTransaction().replace(
-                R.id.fragment,
-                selectFragment!!
-            ).commit()
-            true
-        }
+            R.id.nav_buy -> {
+
+                buyFragment = BuyFragment()
+
+                supportFragmentManager.beginTransaction().replace(R.id.fragment, homeFragment)
+                    .commit()
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.nav_more -> {
+                 moreFragment = MoreFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.fragment, moreFragment)
+                    .commit()
+                return@OnNavigationItemSelectedListener true
+            }
+
+    }
+        false
+    }
 }

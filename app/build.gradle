@@ -18,6 +18,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 19
+
     }
     dexOptions {
         javaMaxHeapSize "4g"
@@ -79,6 +81,7 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.0'
     implementation 'com.chabbal:slidingdotsplash:1.0.2'
     implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+    implementation 'com.github.jrvansuita:GaussianBlur:+'
 
 
 }

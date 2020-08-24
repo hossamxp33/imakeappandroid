@@ -4,33 +4,59 @@
     <data>
         <variable name="viewModel"
                 type="com.example.android.slider.UserViewModel"/>
+        <variable
+                name="settingusecase"
+                type="com.example.android.slider.datalayer.usecases.SettingsUseCase"/>
+        <variable
+                name="sliderusecase"
+                type="com.example.android.slider.datalayer.usecases.SliderUseCase"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             >
-<androidx.cardview.widget.CardView
-        android:id="@+id/image_sliderr"
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
 
-        app:cardCornerRadius="10dp">
+            <androidx.cardview.widget.CardView
+                    android:id="@+id/image_sliderr"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    app:cardCornerRadius="20dp">
+
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/image_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            app:civ_border_color="#FF000000"
+                            app:civ_border_width="7dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintCircleRadius="50dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                             />
+
+            </androidx.cardview.widget.CardView>
+
+
         <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/image_slider"
-                android:background="@drawable/slider_round_corner"
+                android:id="@+id/image_slider_background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
-                android:scaleType="fitXY"
-                app:imageResource="@{`http://parashote.codesroots.com/library//slideshowphoto/15963117961023616007.jpg`}"
-                app:layout_constraintTop_toTopOf="parent"
+                android:paddingBottom="30dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
-</androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

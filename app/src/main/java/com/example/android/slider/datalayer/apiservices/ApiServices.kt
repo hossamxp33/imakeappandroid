@@ -2,6 +2,7 @@ package com.example.android.slider.datalayer.apiservices
 
 
 
+import com.example.android.slider.models.maindatamodel.MainDataModel
 import com.example.android.slider.models.settings.SettingsModel
 import com.example.android.slider.models.slideshow.SlideShowModel
 import com.example.android.slider.models.splash.SplashData
@@ -18,10 +19,24 @@ import java.util.concurrent.TimeUnit
 interface APIServices{
     @GET("Splashes/getallsplashes.json")
      fun getSplashData():Observable<SplashData>
+
     @GET("Types/getdata.json")
     fun getSttingData():Observable<SettingsModel>
+
     @GET("Slideshows/getallslideshows.json")
     fun getSliderShowSata():Observable<SlideShowModel>
+
+    @GET("products/mainpage.json")/*{company_id}*/
+    fun GetMainPageData():
+            Observable<MainDataModel>
+
+
+
+
+
+
+
+
 companion object{
 
      fun create(): APIServices {

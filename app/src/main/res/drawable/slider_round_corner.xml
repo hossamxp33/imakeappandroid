@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
         android:shape="rectangle" android:src="@drawable/cvr"
-        android:alpha="0.4"
+        android:alpha="0.1"
         >
 
     <solid android:color="#40000000" />
