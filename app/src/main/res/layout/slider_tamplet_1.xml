@@ -9,8 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@drawable/slider_tamplet1"
-
             app:cardCornerRadius="10dp">
     <androidx.cardview.widget.CardView
             android:id="@+id/card"
@@ -29,11 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-
                 android:adjustViewBounds="true"
-                app:imageResource="@{`http://parashote.codesroots.com/library//slideshowphoto/15963117961023616007.jpg`}"
                 app:layout_constraintTop_toTopOf="parent"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>

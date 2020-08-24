@@ -8,6 +8,7 @@
             android:id="@+id/imageView5"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             android:alpha="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".25"
@@ -21,18 +22,18 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintHeight_percent=".3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".33"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabDots"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="7dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/viewpager"
+            app:layout_constraintTop_toBottomOf="@+id/viewpager"
             app:layout_constraintBottom_toTopOf="@id/recyclerView"
             app:layout_constraintEnd_toEndOf="@+id/viewpager"
             app:layout_constraintStart_toStartOf="@+id/viewpager"
@@ -42,14 +43,17 @@
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabline2"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="10dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/viewpager"
+            app:layout_constraintTop_toBottomOf="@+id/viewpager"
             app:layout_constraintBottom_toTopOf="@id/recyclerView"
             app:layout_constraintEnd_toEndOf="@+id/viewpager"
             app:layout_constraintStart_toStartOf="@+id/viewpager"
             app:tabBackground="@drawable/tab_selector"
             app:tabIndicatorFullWidth="false"
+            app:tabPadding="25dp"
+            app:tabIndicatorHeight="0dp"
+            app:tabIndicatorColor="#dadadadf"
             app:tabGravity="center"
 
          />
@@ -61,7 +65,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".20"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/viewpager"
             app:layout_constraintWidth_default="percent"
             app:layout_constraintWidth_percent=".85" />
     <TextView
@@ -73,19 +77,17 @@
             android:text="@string/main_text"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/product_recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/product_recyclerView"
             android:layout_width="0dp"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".85"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent=".5"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".85" />
 </androidx.constraintlayout.widget.ConstraintLayout>

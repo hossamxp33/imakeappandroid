@@ -1,5 +1,6 @@
 package com.example.android.slider.presentation.homefragment
 
+import android.animation.ObjectAnimator
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -29,11 +30,13 @@ import android.view.ViewTreeObserver
 import android.os.Build
 import android.annotation.TargetApi
 import android.graphics.Canvas
+import android.graphics.Path
 import android.renderscript.Allocation
 import android.renderscript.RenderScript
 import android.renderscript.ScriptIntrinsicBlur
 import android.widget.ImageView
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_slider.view.*
 
 
 class HomeFragment: Fragment(){
@@ -74,14 +77,7 @@ class HomeFragment: Fragment(){
 
 
         })
-        settingUseCse = SettingData.get(0)
-        settigs_data = SettingData
 
-        when (settingUseCse.slider_template){
-            "1" -> {
-
-            }
-        }
 
 
         settingsViewModel.settingsResponse?.observe(this , androidx.lifecycle.Observer {
@@ -92,18 +88,24 @@ class HomeFragment: Fragment(){
                 "1" -> {
                     viewpager!!.clipChildren = false
                     viewpager!!.clipToPadding = false
+                    viewpager.setCurrentItem(currentPage++,true)
+
+//
+
                     val tabLayout = tabDots
                     tabLayout.setupWithViewPager(viewpager, true)
                     tabLayout.isTabIndicatorFullWidth = false
                     tabLayout!!.setPadding(80, 0, 80, 0)
+
                 }
                 "2" -> {
+                    viewpager!!.clipChildren = false
+                    viewpager!!.clipToPadding = false
                     viewpager!!.pageMargin = 20
                     viewpager!!.setPadding(80, 0, 50, 0)
                     val tabLayout = tabline2
                     tabLayout.setupWithViewPager(viewpager, true)
                     tabLayout.isTabIndicatorFullWidth = false
-                    tabLayout!!.setPadding(80, 0, 80, 0)
                 }
                 else -> { // Note the block
                     print("x is neither 1 nor 2")
@@ -118,54 +120,18 @@ class HomeFragment: Fragment(){
             if (currentPage == NUM_PAGES) {
                 currentPage = 0
             }
-            viewpager.setCurrentItem(currentPage++, true)
         })
 
       view.recyclerView?.adapter= ProductViewAdapter()
       view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
 
      view.product_recyclerView?.adapter= FamousProductAdapter()
-        if (settingUseCse.slider_template == "1"){  view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))}
-        if (settingUseCse.slider_template == "2"){  view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 2))}
+         view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
 
 
         return view
 
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private fun blur(bkg: Bitmap, view: Bitmap) {
-        val startMs = System.currentTimeMillis()
-
-        val radius = 20f
-
-        val overlay = Bitmap.createBitmap(
-            view.width,
-            view.height, Bitmap.Config.ARGB_8888
-        )
-
-
-        val rs = RenderScript.create(context)
-
-        val overlayAlloc = Allocation.createFromBitmap(
-            rs, overlay
-        )
-
-        val blur = ScriptIntrinsicBlur.create(
-            rs, overlayAlloc.getElement()
-        )
-
-        blur.setInput(overlayAlloc)
-
-        blur.setRadius(radius)
-
-        blur.forEach(overlayAlloc)
-
-        overlayAlloc.copyTo(overlay)
-
-
-
-        rs.destroy()
-    }
 
 }

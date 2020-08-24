@@ -54,6 +54,7 @@ class ViewPagerAdapter(
                     LayoutInflater.from(container.context),
                     R.layout.slider_tamplet_1,
                     container, false)
+                     loudImage(context,binding.imageSlider, sliderdata?.get(position)?.photo)
 
                     container.addView(binding.root)
                     return binding.root}

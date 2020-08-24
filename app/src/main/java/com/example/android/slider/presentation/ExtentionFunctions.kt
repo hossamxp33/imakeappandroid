@@ -44,7 +44,8 @@ fun loudImage(context: Context, imag: ImageView, url: String?) {
     Glide.with(context).applyDefaultRequestOptions(
         RequestOptions()
             .placeholder(com.example.android.slider.R.drawable.noimg)
-            .error(com.example.android.slider.R.drawable.noimg)).load(url).into(imag)
+            .error(com.example.android.slider.R.drawable.noimg))
+        .load(url).into(imag)
 }
 
 
