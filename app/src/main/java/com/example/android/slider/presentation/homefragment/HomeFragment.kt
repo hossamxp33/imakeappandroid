@@ -70,34 +70,20 @@ class HomeFragment: Fragment(){
 
         mainViewModel.SliderDataResponseLD?.observe(this, Observer {
          sliderUseCse = it.Slider
-            view.viewpager?.adapter =
-                ViewPagerAdapter(
-                    activity!!,settingUseCse,sliderUseCse
-               )
+            settigs_data = SettingData
+            settingUseCse = settigs_data!!.get(0)
+            view.viewpager?.adapter = ViewPagerAdapter(activity!!,settingUseCse,sliderUseCse)
 
-
-        })
-
-
-
-        settingsViewModel.settingsResponse?.observe(this , androidx.lifecycle.Observer {
-            settingUseCse = it!!.get(0)
-            settigs_data = it
-
-            when (settingUseCse.slider_template) {
+            when  (settingUseCse.slider_template){
                 "1" -> {
                     viewpager!!.clipChildren = false
                     viewpager!!.clipToPadding = false
                     viewpager.setCurrentItem(currentPage++,true)
-
-//
-
                     val tabLayout = tabDots
                     tabLayout.setupWithViewPager(viewpager, true)
-                    tabLayout.isTabIndicatorFullWidth = false
-                    tabLayout!!.setPadding(80, 0, 80, 0)
 
                 }
+
                 "2" -> {
                     viewpager!!.clipChildren = false
                     viewpager!!.clipToPadding = false
@@ -111,7 +97,13 @@ class HomeFragment: Fragment(){
                     print("x is neither 1 nor 2")
                 }
             }
+
+
+
+
         })
+
+
 
 
         viewModel= ViewModelProviders.of(this).get(HomeViewModel::class.java)
