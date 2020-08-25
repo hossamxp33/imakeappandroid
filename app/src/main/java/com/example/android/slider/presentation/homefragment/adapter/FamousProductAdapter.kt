@@ -1,4 +1,4 @@
-package com.example.android.slider.presentation.homefragment
+package com.example.android.slider.presentation.homefragment.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater

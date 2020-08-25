@@ -1,6 +1,5 @@
 package com.example.android.slider.presentation.homefragment
 
-import android.animation.ObjectAnimator
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -24,19 +23,10 @@ import com.viewpagerindicator.CirclePageIndicator
 import kotlinx.android.synthetic.main.homefragment.*
 import kotlinx.android.synthetic.main.homefragment.view.*
 import kotlinx.android.synthetic.main.viewpagerimage.*
-import android.graphics.Bitmap
-import android.view.ViewTreeObserver
 
-import android.os.Build
-import android.annotation.TargetApi
-import android.graphics.Canvas
-import android.graphics.Path
-import android.renderscript.Allocation
-import android.renderscript.RenderScript
-import android.renderscript.ScriptIntrinsicBlur
 import android.widget.ImageView
-import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.activity_slider.view.*
+import com.example.android.slider.datalayer.usecases.CategoryUseCase
+import com.example.android.slider.presentation.homefragment.adapter.FamousProductAdapter
 
 
 class HomeFragment: Fragment(){
@@ -47,11 +37,13 @@ class HomeFragment: Fragment(){
     val settings: SettingsModelData?=null
    lateinit var  sliders : Sliders
     var sliderUseCse: List<SliderUseCase> ? = null
+    var categoryUseCse: List<CategoryUseCase> ? = null
 
     var settingUseCse: SettingsUseCase = SettingsUseCase(settings)
     lateinit var settingsViewModel: SettingViewModel
     lateinit var mainViewModel : MainViewModel
     private var imslider: RoundedImageView? = null
+    private var imgtpt1: ImageView? = null
 
     lateinit var viewModel: HomeViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -63,13 +55,14 @@ class HomeFragment: Fragment(){
         mainViewModel.GetMainPageData()
         var SettingData =  arguments?.getSerializable("data") as List<SettingsUseCase> ;
        imslider = image_slider
-
         indicator = indicator
 
         settingsViewModel.getSettings()
 
         mainViewModel.SliderDataResponseLD?.observe(this, Observer {
          sliderUseCse = it.Slider
+            categoryUseCse = it.Category
+
             settigs_data = SettingData
             settingUseCse = settigs_data!!.get(0)
             view.viewpager?.adapter = ViewPagerAdapter(activity!!,settingUseCse,sliderUseCse)
@@ -78,7 +71,6 @@ class HomeFragment: Fragment(){
                 "1" -> {
                     viewpager!!.clipChildren = false
                     viewpager!!.clipToPadding = false
-                    viewpager.setCurrentItem(currentPage++,true)
                     val tabLayout = tabDots
                     tabLayout.setupWithViewPager(viewpager, true)
 
@@ -91,14 +83,29 @@ class HomeFragment: Fragment(){
                     viewpager!!.setPadding(80, 0, 50, 0)
                     val tabLayout = tabline2
                     tabLayout.setupWithViewPager(viewpager, true)
-                    tabLayout.isTabIndicatorFullWidth = false
                 }
                 else -> { // Note the block
                     print("x is neither 1 nor 2")
                 }
             }
 
+            when  (settingUseCse.category_template){
+                "1" ->{
+                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse)
+                    view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
+                }
+                "2" ->{
+                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse)
+                  //  view.recyclerView.layoutManager = GridLayoutManager(context,3)
+                    view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
 
+                }
+                "3" ->{
+                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse)
+                    view.recyclerView.layoutManager = GridLayoutManager(context,2)
+                }
+
+            }
 
 
         })
@@ -112,13 +119,12 @@ class HomeFragment: Fragment(){
             if (currentPage == NUM_PAGES) {
                 currentPage = 0
             }
+            viewpager.setCurrentItem(currentPage++, true)
+
         })
 
-      view.recyclerView?.adapter= ProductViewAdapter()
-      view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
-
-     view.product_recyclerView?.adapter= FamousProductAdapter()
-         view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
+            view.product_recyclerView?.adapter= FamousProductAdapter()
+            view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
 
 
         return view

@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.android.slider.datalayer.apiservices.APIServices
 import com.example.android.slider.datalayer.usecases.MainDataUseCase
 import com.example.android.slider.datalayer.usecases.SettingsUseCase
-import com.example.android.slider.datalayer.usecases.SliderUseCase
 import com.example.android.slider.models.maindatamodel.MainDataModel
 import com.example.android.slider.presentation.homefragment.viewmodel.MainViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers

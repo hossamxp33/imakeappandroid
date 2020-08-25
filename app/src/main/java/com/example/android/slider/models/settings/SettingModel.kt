@@ -41,5 +41,8 @@ data class SettingData (
     val fontcolor: String? = null,
     val fontfamily: String? = null,
     val slideshow: String? = null,
-    val slider_template: String? = null
-):Serializable
+    val slider_template: String? = null,
+    @SerializedName("category_template")
+    val category_template : String? = null,
+    val product_template: String? = null
+    ):Serializable

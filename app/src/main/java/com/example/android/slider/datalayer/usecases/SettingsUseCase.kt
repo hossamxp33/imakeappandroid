@@ -30,7 +30,8 @@ data class SettingsUseCase(val settings: SettingsModelData?=null):Serializable  
     var title:String?=null
     var fontfamily: String? = null
     var slider_template: String? = null
-
+    var category_template: String? = null
+    var product_template: String? = null
 
     //  var slideshow: String? = null
 
@@ -45,7 +46,9 @@ settingData = settings
      logo=settingData!!.data.logo
      rightIcon=settingData!!.data.rightIcon
      leftIcon=settingData!!.data.leftIcon
-     slider_template = "1"
+     slider_template = settingData!!.data.slider_template
+     category_template =  "3" //settingData!!.data.category_template
+
  }else{}
 if(settings?.type=="footer"){
     border=settingData!!.data.border
@@ -95,6 +98,7 @@ if(settings?.type=="footer"){
             fontGreen=settingData!!.data.fontGreen
             fontBlue=settingData!!.data.fontBlue
             fontfamily=settingData!!.data.fontfamily
+
         }else{}
         if (settings?.type=="bodydesign"){
             background=settingData!!.data.background
