@@ -1,5 +1,6 @@
 package com.example.android.slider.presentation.homefragment.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.databinding.DataBindingUtil
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -7,6 +8,8 @@ import androidx.viewpager.widget.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DimenRes
+import androidx.annotation.Dimension
 import androidx.fragment.app.FragmentActivity
 import com.example.android.slider.R
 import com.example.android.slider.databinding.SliderTamplet1Binding
@@ -17,6 +20,9 @@ import com.example.android.slider.datalayer.usecases.SettingsUseCase
 import com.example.android.slider.datalayer.usecases.SliderUseCase
 import com.example.android.slider.datalayer.usecases.loadBackSliderImage
 import com.example.android.slider.presentation.loudImage
+import com.google.android.material.imageview.ExperimentalImageView
+import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.shape.CornerFamily
 
 
 class ViewPagerAdapter(
@@ -31,6 +37,7 @@ class ViewPagerAdapter(
     init {
         this.context = activity
     }
+    @SuppressLint("UnsafeExperimentalUsageError")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
         when (settingData.slider_template) {
@@ -45,7 +52,7 @@ class ViewPagerAdapter(
                     container.addView(binding.root)
 
                    binding.settingusecase = settingData
-                binding.sliderusecase = sliderdata!!.get(position)
+                   binding.sliderusecase = sliderdata!!.get(position)
 
                 return binding.root}
 
@@ -63,7 +70,9 @@ class ViewPagerAdapter(
                     LayoutInflater.from(container.context),
                     R.layout.slider_tamplet_2,
                     container, false)
-                    container.addView(binding.root)
+                loudImage(context,binding.imageSlider, sliderdata?.get(position)?.photo)
+
+                container.addView(binding.root)
                     return binding.root}
 
         }

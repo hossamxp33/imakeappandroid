@@ -8,14 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.view.ViewParent
 import androidx.databinding.DataBindingUtil
 import com.example.android.slider.databinding.ProductviewBinding
 import com.example.android.slider.datalayer.usecases.CategoryUseCase
 import com.example.android.slider.datalayer.usecases.SettingsUseCase
 
 import android.widget.LinearLayout
-
+import com.example.android.slider.R
 
 
 class ProductViewAdapter (var data:List<CategoryUseCase> , var settingsUseCase: SettingsUseCase) : RecyclerView.Adapter<CustomViewHolder>() {
@@ -35,31 +34,29 @@ class ProductViewAdapter (var data:List<CategoryUseCase> , var settingsUseCase: 
             com.example.android.slider.R.layout.productview,p0,false)
         when(settingsUseCase.category_template){
             "1" -> {
-                 binding.productImageTamplet2.visibility = View.GONE
-                 binding.textViewTemplate2.visibility = View.GONE
-                  binding.constraintLayoutTamplate.background = null
-                 binding.textViewTemplate3.visibility = View.GONE
-                // Set the width by params
-                val params = LinearLayout.LayoutParams(WRAP_CONTENT,WRAP_CONTENT)
-                params.width = WRAP_CONTENT
-                binding.constraintLayoutTamplate.setLayoutParams(params);
+                 binding.constraintLayoutTamplate1.visibility = View.GONE
+                 binding.constraintLayoutTamplate2.visibility = View.GONE
+
+                 binding.constraintLayoutTamplate.setBackgroundResource(R.drawable.border_product)
 
             }
             "2" -> {
-                binding.productImage.visibility = View.GONE
-                binding.textView2.visibility = View.GONE
-                binding.textViewTemplate3.visibility = View.GONE
-                // Set the width by params
-                val params = LinearLayout.LayoutParams(WRAP_CONTENT,WRAP_CONTENT)
-                params.width = WRAP_CONTENT
-                binding.constraintLayoutTamplate.setLayoutParams(params);
-            }
-            "3" -> {
-                binding.productImage.visibility = View.GONE
-                binding.textView2.visibility = View.GONE
-                binding.textViewTemplate2.visibility = View.GONE
+                binding.constraintLayoutTamplate2.visibility = View.GONE
+                binding.constraintLayoutTamplate.visibility = View.GONE
+                binding.constraintLayoutTamplate1.setBackgroundResource(R.drawable.round_border_product)
 
             }
+            "3" -> {
+                binding.constraintLayoutTamplate.visibility = View.GONE
+                binding.constraintLayoutTamplate1.visibility = View.GONE
+                binding.constraintLayoutTamplate2.setBackgroundResource(R.drawable.border_product)
+                val params = LinearLayout.LayoutParams(MATCH_PARENT,WRAP_CONTENT)
+                params.width = MATCH_PARENT
+                params.topMargin = 15
+                params.rightMargin = 10
+                binding.MainconstraintLayout.setLayoutParams(params);
+
+            }else -> {}
         }
         return  CustomViewHolder(binding)
     }

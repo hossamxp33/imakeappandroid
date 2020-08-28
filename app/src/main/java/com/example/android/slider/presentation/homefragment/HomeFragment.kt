@@ -1,5 +1,6 @@
 package com.example.android.slider.presentation.homefragment
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.example.android.slider.*
 import com.example.android.slider.datalayer.usecases.SettingsUseCase
 import com.example.android.slider.datalayer.usecases.SliderUseCase
 import com.example.android.slider.models.maindatamodel.Sliders
@@ -24,9 +24,13 @@ import kotlinx.android.synthetic.main.homefragment.*
 import kotlinx.android.synthetic.main.homefragment.view.*
 import kotlinx.android.synthetic.main.viewpagerimage.*
 
-import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.android.slider.R
 import com.example.android.slider.datalayer.usecases.CategoryUseCase
 import com.example.android.slider.presentation.homefragment.adapter.FamousProductAdapter
+
+import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
+import com.google.android.material.shape.CornerFamily
 
 
 class HomeFragment: Fragment(){
@@ -43,11 +47,12 @@ class HomeFragment: Fragment(){
     lateinit var settingsViewModel: SettingViewModel
     lateinit var mainViewModel : MainViewModel
     private var imslider: RoundedImageView? = null
-    private var imgtpt1: ImageView? = null
+    private var backimage = image_slider_background
 
     lateinit var viewModel: HomeViewModel
+    @SuppressLint("UnsafeExperimentalUsageError")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view:View=inflater.inflate(R.layout.homefragment,container,false)
+        val view:View=inflater.inflate(com.example.android.slider.R.layout.homefragment,container,false)
 
         settingsViewModel =ViewModelProviders.of(this).get(SettingViewModel::class.java)
 
@@ -56,7 +61,6 @@ class HomeFragment: Fragment(){
         var SettingData =  arguments?.getSerializable("data") as List<SettingsUseCase> ;
        imslider = image_slider
         indicator = indicator
-
         settingsViewModel.getSettings()
 
         mainViewModel.SliderDataResponseLD?.observe(this, Observer {
@@ -74,21 +78,35 @@ class HomeFragment: Fragment(){
                     val tabLayout = tabDots
                     tabLayout.setupWithViewPager(viewpager, true)
 
+
+
+
                 }
 
                 "2" -> {
                     viewpager!!.clipChildren = false
                     viewpager!!.clipToPadding = false
                     viewpager!!.pageMargin = 20
-                    viewpager!!.setPadding(80, 0, 50, 0)
+                    viewpager.offscreenPageLimit = 3
+                    viewpager.setPadding(80,0,80,0)
                     val tabLayout = tabline2
                     tabLayout.setupWithViewPager(viewpager, true)
+                    viewpager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
                 }
-                else -> { // Note the block
-                    print("x is neither 1 nor 2")
-                }
-            }
+                "3" -> {
+                    viewpager!!.clipChildren = false
+                    viewpager!!.clipToPadding = false
+                    val tabLayout = tabDots
+                    tabLayout.setupWithViewPager(viewpager, true)
+                     // Create an object of page transformer
+                    val cardFlipPageTransformer = CardFlipPageTransformer()
+                    cardFlipPageTransformer.setScalable(false);
+                    viewpager.setPageTransformer(true,cardFlipPageTransformer)
 
+                }else -> { // Note the block
+                print("x is neither 1 nor 2")
+            }
+            }
             when  (settingUseCse.category_template){
                 "1" ->{
                     view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse)

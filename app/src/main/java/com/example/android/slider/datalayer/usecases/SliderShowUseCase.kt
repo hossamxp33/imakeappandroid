@@ -40,8 +40,9 @@ fun loadBackSliderImage(context: Context, imag: ImageView, url: String?) {
     Glide.with(context).applyDefaultRequestOptions(
         RequestOptions()
             .placeholder(com.example.android.slider.R.drawable.noimg)
-            .error(com.example.android.slider.R.drawable.noimg)).load(url).override(10 , 20)
+            .error(com.example.android.slider.R.drawable.noimg)).load(url).override(5 , 5)
         .into(imag)
+
 }
 @BindingAdapter("android:backgroundColor")
 fun ViewGroup.setBackground(backgroundColor: String) {

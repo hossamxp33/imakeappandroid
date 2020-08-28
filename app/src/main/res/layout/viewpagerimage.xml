@@ -35,7 +35,6 @@
                             android:adjustViewBounds="true"
                             android:scaleType="centerCrop"
                             app:civ_border_color="#FF000000"
-                            app:civ_border_width="7dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintCircleRadius="50dp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -44,19 +43,27 @@
 
                              />
 
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/borderview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
             </androidx.cardview.widget.CardView>
 
 
-        <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/image_slider_background"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="30dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+            <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image_slider_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="30dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/circleImageView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -33,7 +33,7 @@ data class SettingsUseCase(val settings: SettingsModelData?=null):Serializable  
     var category_template: String? = null
     var product_template: String? = null
 
-    //  var slideshow: String? = null
+ var slideshow: String? = null
 
     init {
 
@@ -46,7 +46,7 @@ settingData = settings
      logo=settingData!!.data.logo
      rightIcon=settingData!!.data.rightIcon
      leftIcon=settingData!!.data.leftIcon
-     slider_template = settingData!!.data.slider_template
+     slider_template = "3"
      category_template =  "3" //settingData!!.data.category_template
 
  }else{}
