@@ -9,15 +9,15 @@ import com.example.android.slider.datalayer.usecases.SliderUseCase
 
 class MainViewModel: ViewModel(){
     var MainReporository: DataRepo = DataRepo()
-    var SliderDataResponseLD : MutableLiveData<MainDataUseCase>? = null
+    var MainDataResponseLD : MutableLiveData<MainDataUseCase>? = null
 
     var errormessage: MutableLiveData<String>?= null
     init {
-        SliderDataResponseLD  = MutableLiveData()
+        MainDataResponseLD  = MutableLiveData()
         errormessage= MutableLiveData()
     }
     fun GetMainPageData(){
-        MainReporository.GetMainPageData(SliderDataResponseLD,errormessage)
+        MainReporository.GetMainPageData(MainDataResponseLD,errormessage)
     }
 
 }

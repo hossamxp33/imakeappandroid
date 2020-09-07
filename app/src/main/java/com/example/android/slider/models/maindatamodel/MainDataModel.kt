@@ -9,7 +9,7 @@ data class MainDataModel (
     var sliders : List<Sliders>,
     @SerializedName("category")
     val category : List<Category>,
-    @SerializedName("product")
+    @SerializedName("randproduct")
     val randproduct : List<product>
 ): Serializable
 
@@ -22,8 +22,8 @@ data class Sliders (
 data class Category (
     @SerializedName("id") val id : Int,
     @SerializedName("photo") val photo : String,
-
     @SerializedName("subcats") val subcats : List<Subcats>
+
 ):Serializable
 data class Productphotos (
 

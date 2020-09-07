@@ -52,8 +52,8 @@ class ProductViewAdapter (var data:List<CategoryUseCase> , var settingsUseCase: 
                 binding.constraintLayoutTamplate2.setBackgroundResource(R.drawable.border_product)
                 val params = LinearLayout.LayoutParams(MATCH_PARENT,WRAP_CONTENT)
                 params.width = MATCH_PARENT
-                params.topMargin = 15
-                params.rightMargin = 10
+                params.topMargin = 16
+                params.rightMargin = 16
                 binding.MainconstraintLayout.setLayoutParams(params);
 
             }else -> {}

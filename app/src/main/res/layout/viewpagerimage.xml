@@ -58,7 +58,7 @@
                     android:id="@+id/image_slider_background"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="30dp"
+                    android:paddingBottom="50dp"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

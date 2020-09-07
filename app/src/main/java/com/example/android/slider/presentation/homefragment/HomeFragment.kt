@@ -27,6 +27,7 @@ import kotlinx.android.synthetic.main.viewpagerimage.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.slider.R
 import com.example.android.slider.datalayer.usecases.CategoryUseCase
+import com.example.android.slider.datalayer.usecases.FamousProductUseCase
 import com.example.android.slider.presentation.homefragment.adapter.FamousProductAdapter
 
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
@@ -42,6 +43,7 @@ class HomeFragment: Fragment(){
    lateinit var  sliders : Sliders
     var sliderUseCse: List<SliderUseCase> ? = null
     var categoryUseCse: List<CategoryUseCase> ? = null
+    var famousUseCse: List<FamousProductUseCase> ? = null
 
     var settingUseCse: SettingsUseCase = SettingsUseCase(settings)
     lateinit var settingsViewModel: SettingViewModel
@@ -59,13 +61,14 @@ class HomeFragment: Fragment(){
         mainViewModel =ViewModelProviders.of(this).get(MainViewModel::class.java)
         mainViewModel.GetMainPageData()
         var SettingData =  arguments?.getSerializable("data") as List<SettingsUseCase> ;
-       imslider = image_slider
+        imslider = image_slider
         indicator = indicator
         settingsViewModel.getSettings()
 
-        mainViewModel.SliderDataResponseLD?.observe(this, Observer {
-         sliderUseCse = it.Slider
-            categoryUseCse = it.Category
+        mainViewModel.MainDataResponseLD?.observe(this, Observer {
+            sliderUseCse = it.Slider // 1
+            categoryUseCse = it.Category // 2
+            famousUseCse = it.FamousProduct // 3
 
             settigs_data = SettingData
             settingUseCse = settigs_data!!.get(0)
@@ -125,6 +128,19 @@ class HomeFragment: Fragment(){
 
             }
 
+            when (settingUseCse.product_template){
+"1" -> {
+    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse)
+    view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
+}
+                "2" -> {
+                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse)
+                    view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 2))
+
+
+                }
+            }
+
 
         })
 
@@ -140,10 +156,6 @@ class HomeFragment: Fragment(){
             viewpager.setCurrentItem(currentPage++, true)
 
         })
-
-            view.product_recyclerView?.adapter= FamousProductAdapter()
-            view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
-
 
         return view
 

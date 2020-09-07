@@ -46,8 +46,10 @@ settingData = settings
      logo=settingData!!.data.logo
      rightIcon=settingData!!.data.rightIcon
      leftIcon=settingData!!.data.leftIcon
-     slider_template = "3"
-     category_template =  "3" //settingData!!.data.category_template
+     slider_template = "1"
+     category_template =  "1" //settingData!!.data.category_template
+     product_template = "2"
+
 
  }else{}
 if(settings?.type=="footer"){

@@ -10,10 +10,13 @@ import java.io.Serializable
 data class MainDataUseCase(val mainData: MainDataModel?=null): Serializable {
     var Slider: List<SliderUseCase>? = null
     var Category: List<CategoryUseCase>? = null
+    var FamousProduct: List<FamousProductUseCase>? = null
+
 
     init {
         Slider = ConvertSliderTOSliderViewModel(mainData!!.sliders)
         Category = ConvertCategoryTOCategoryViewModel(mainData.category)
+        FamousProduct = convertFamousToFamousViewModel(mainData.randproduct)
     }
 }
 
@@ -24,6 +27,9 @@ data class MainDataUseCase(val mainData: MainDataModel?=null): Serializable {
     fun ConvertCategoryTOCategoryViewModel(category: List<Category>): List<CategoryUseCase> {
         return category.map { CategoryUseCase(it) }
     }
+fun  convertFamousToFamousViewModel(famousproduct : List<product>):List<FamousProductUseCase>{
+    return famousproduct.map { FamousProductUseCase(it) }
+}
 
 
     data class SliderUseCase(val slider: Sliders? = null) : Serializable {
@@ -41,3 +47,17 @@ data class MainDataUseCase(val mainData: MainDataModel?=null): Serializable {
         }
 
     }
+
+data class FamousProductUseCase(val famousproduct: product? = null) : Serializable {
+    var name: String? = null
+    var price: Int? = null
+
+    var photo: String? = null
+
+    init {
+        name = famousproduct!!.name
+        price = famousproduct.price
+        photo = famousproduct.productphotos[0].photo
+    }
+
+}

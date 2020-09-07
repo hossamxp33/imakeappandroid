@@ -76,7 +76,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewpager"
                 app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent=".85" />
+                app:layout_constraintWidth_percent=".9" />
 
         <TextView
                 android:id="@+id/textView"
