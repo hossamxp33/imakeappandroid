@@ -32,7 +32,14 @@ class ProductViewAdapter (var data:List<CategoryUseCase> , var settingsUseCase: 
 
         val  binding: ProductviewBinding = DataBindingUtil.inflate (LayoutInflater.from(p0.context),
             com.example.android.slider.R.layout.productview,p0,false)
-        when(settingsUseCase.category_template){
+        when(settingsUseCase.categoryDesignUseCase!!.category_template){
+            "0" -> {
+                binding.constraintLayoutTamplate1.visibility = View.GONE
+                binding.constraintLayoutTamplate2.visibility = View.GONE
+
+                binding.constraintLayoutTamplate.setBackgroundResource(R.drawable.border_product)
+
+            }
             "1" -> {
                  binding.constraintLayoutTamplate1.visibility = View.GONE
                  binding.constraintLayoutTamplate2.visibility = View.GONE

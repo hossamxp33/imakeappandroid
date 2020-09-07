@@ -8,7 +8,7 @@ import com.example.android.slider.datalayer.usecases.SettingsUseCase
 
 class SettingViewModel:ViewModel(){
     var settingReporository: DataRepo = DataRepo()
-    var settingsResponse: MutableLiveData<List<SettingsUseCase>>?=null
+    var settingsResponse: MutableLiveData<SettingsUseCase>?=null
     var errormessage: MutableLiveData<String>?= null
     init {
         settingsResponse  = MutableLiveData()

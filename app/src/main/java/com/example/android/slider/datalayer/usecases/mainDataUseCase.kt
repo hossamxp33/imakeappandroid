@@ -57,7 +57,7 @@ data class FamousProductUseCase(val famousproduct: product? = null) : Serializab
     init {
         name = famousproduct!!.name
         price = famousproduct.price
-        photo = famousproduct.productphotos[0].photo
+        photo = famousproduct.img
     }
 
 }

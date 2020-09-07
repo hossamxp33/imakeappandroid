@@ -22,7 +22,7 @@ import com.example.android.slider.presentation.offerfragment.OffersFragment
 
 class MainActivity : AppCompatActivity(),Serializable {
 
-    var settings_data: List<SettingsUseCase>? = null
+    var settings_data: SettingsUseCase? = null
     lateinit var viewModel: UserViewModel
     lateinit var homeFragment: HomeFragment
     lateinit var moreFragment: MoreFragment
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(),Serializable {
      val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val intent: Intent? = getIntent()
-        settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as List<SettingsUseCase>
+        settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as SettingsUseCase
 
           val  homeFragment = HomeFragment()
             val bundle = Bundle()

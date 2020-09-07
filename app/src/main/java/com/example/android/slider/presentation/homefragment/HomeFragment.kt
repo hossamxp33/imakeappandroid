@@ -38,14 +38,14 @@ class HomeFragment: Fragment(){
     var currentPage: Int = 0
     var NUM_PAGES: Int = 3
     var indicator: CirclePageIndicator? = null
-    var settigs_data:List<SettingsUseCase>?=null
+    var settigs_data:SettingsUseCase?=null
     val settings: SettingsModelData?=null
    lateinit var  sliders : Sliders
     var sliderUseCse: List<SliderUseCase> ? = null
     var categoryUseCse: List<CategoryUseCase> ? = null
     var famousUseCse: List<FamousProductUseCase> ? = null
 
-    var settingUseCse: SettingsUseCase = SettingsUseCase(settings)
+    var settingUseCse: SettingsUseCase? = null
     lateinit var settingsViewModel: SettingViewModel
     lateinit var mainViewModel : MainViewModel
     private var imslider: RoundedImageView? = null
@@ -60,7 +60,7 @@ class HomeFragment: Fragment(){
 
         mainViewModel =ViewModelProviders.of(this).get(MainViewModel::class.java)
         mainViewModel.GetMainPageData()
-        var SettingData =  arguments?.getSerializable("data") as List<SettingsUseCase> ;
+        var SettingData =  arguments?.getSerializable("data") as SettingsUseCase ;
         imslider = image_slider
         indicator = indicator
         settingsViewModel.getSettings()
@@ -71,10 +71,10 @@ class HomeFragment: Fragment(){
             famousUseCse = it.FamousProduct // 3
 
             settigs_data = SettingData
-            settingUseCse = settigs_data!!.get(0)
-            view.viewpager?.adapter = ViewPagerAdapter(activity!!,settingUseCse,sliderUseCse)
+            settingUseCse = settigs_data!!
+            view.viewpager?.adapter = ViewPagerAdapter(activity!!,settingUseCse!!,sliderUseCse)
 
-            when  (settingUseCse.slider_template){
+            when  (settingUseCse!!.headerSettingUseCase!!.slider_template){
                 "1" -> {
                     viewpager!!.clipChildren = false
                     viewpager!!.clipToPadding = false
@@ -110,31 +110,35 @@ class HomeFragment: Fragment(){
                 print("x is neither 1 nor 2")
             }
             }
-            when  (settingUseCse.category_template){
+            when  (settingUseCse!!.categoryDesignUseCase!!.category_template){
+                "0" -> {
+                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)
+                    view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
+                }
                 "1" ->{
-                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse)
+                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)
                     view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
                 }
                 "2" ->{
-                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse)
+                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)
                   //  view.recyclerView.layoutManager = GridLayoutManager(context,3)
                     view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
 
                 }
                 "3" ->{
-                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse)
+                    view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)
                     view.recyclerView.layoutManager = GridLayoutManager(context,2)
                 }
 
             }
 
-            when (settingUseCse.product_template){
+            when (settingUseCse!!.productSettingUseCase!!.product_template){
 "1" -> {
-    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse)
+    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
     view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
 }
                 "2" -> {
-                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse)
+                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
                     view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 2))
 
 

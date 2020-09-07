@@ -8,7 +8,7 @@
         <variable
 
                 name="settingusecase"
-                type="List&lt;com.example.android.slider.datalayer.usecases.SettingsUseCase &gt;"/>
+                type="com.example.android.slider.datalayer.usecases.SettingsUseCase"/>
 
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
     <include
             android:id="@+id/app_bar"
             layout="@layout/app_bar"
-            bind:headersetting = "@{settingusecase.get(0)}"
+            bind:headersetting = "@{settingusecase.headerSettingUseCase}"
             app:layout_constraintEnd_toEndOf="parent"
 
             app:layout_constraintStart_toStartOf="parent"

@@ -40,7 +40,7 @@ class ViewPagerAdapter(
     @SuppressLint("UnsafeExperimentalUsageError")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
-        when (settingData.slider_template) {
+        when (settingData.headerSettingUseCase!!.slider_template) {
             "1" ->{
                 val binding:ViewpagerimageBinding=DataBindingUtil.inflate(
                     LayoutInflater.from(container.context),

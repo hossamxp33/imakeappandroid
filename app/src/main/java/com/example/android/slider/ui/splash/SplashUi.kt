@@ -21,22 +21,22 @@ import java.io.Serializable
 @SuppressLint("Registered")
 class SplashUi() :AppCompatActivity()
 {
-companion object{
-    val SETTINGUSECASEkEY:String = "Settings"
-}
-  var settigs_data:List<SettingsUseCase>?=null
-   val settings: SettingsModelData?=null
-    var settingUseCse: SettingsUseCase = SettingsUseCase(settings)
+    companion object{
+        val SETTINGUSECASEkEY:String = "Settings"
+    }
+    var settigs_data:SettingsUseCase?=null
+    val settings: SettingsModelData?=null
+    var settingUseCse: SettingsUseCase?=null
     lateinit var settingsViewModel: SettingViewModel
     private var mDelayHandler: Handler? = null
     private val SPLASH_DELAY: Long = 5000 //3 seconds
     internal val mRunnable: Runnable = Runnable {
-        if (!isFinishing) {
-                    val intent = Intent(this, SliderShow::class.java)
-            startActivity(intent)
-                    finish()
-
-            }
+        //        if (!isFinishing) {
+//                    val intent = Intent(this, SliderShow::class.java)
+//            startActivity(intent)
+//                    finish()
+//
+//            }
 
     }
 
@@ -55,38 +55,35 @@ companion object{
         settingsViewModel=ViewModelProviders.of(this).get(SettingViewModel::class.java)
         splashViewModel.getData()
         splashViewModel.clientsResponseLD?.observe(this , androidx.lifecycle.Observer {
-        binding.splash = it!!.get(0)
+            binding.splash = it!!.get(0)
 
 
         })
 
         settingsViewModel.getSettings()
         settingsViewModel.settingsResponse?.observe(this , androidx.lifecycle.Observer {
-            settingUseCse= it!!.get(0)
-          settigs_data=it
-           val bundle=Bundle()
+            settingUseCse = it!!
+            settigs_data= it
+            val bundle=Bundle()
             val data_Intent = Intent(this, MainActivity::class.java)
-           data_Intent.putExtra(SETTINGUSECASEkEY, settigs_data as Serializable)
+            data_Intent.putExtra(SETTINGUSECASEkEY, settigs_data as Serializable)
             data_Intent.putExtras(bundle)
             startActivity(data_Intent)
             finish()
             mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
-            it.forEach {
-              //  println(it)
-              //  println(it.settings!!.data.background)
-            }
+
         })
 
     }
 
     override fun onDestroy() {
 
-            if (mDelayHandler != null) {
-                mDelayHandler!!.removeCallbacks(mRunnable)
-            }
-
-            super.onDestroy()
+        if (mDelayHandler != null) {
+            mDelayHandler!!.removeCallbacks(mRunnable)
         }
+
+        super.onDestroy()
+    }
 
 }
 

@@ -5,7 +5,7 @@
     <variable
 
             name="headersetting"
-            type="com.example.android.slider.datalayer.usecases.SettingsUseCase"/>
+            type="com.example.android.slider.datalayer.usecases.HeaderSettingUseCase"/>
 
 </data>
 <com.google.android.material.appbar.AppBarLayout
