@@ -21,20 +21,18 @@ data class ProductSettingUseCase(val settingData: SettingsModelData?=null): Seri
     var fontfamily: String? = null
 var product_template : String? = null
     init {
-
-
         title=settingData!!.data.title
         border=settingData!!.data.border
         shadow=settingData!!.data.shadow
         background=settingData!!.data.background
-        red=settingData!!.data.red
-        green=settingData!!.data.green
-        blue=settingData!!.data.blue
-        fontColor=settingData!!.data.fontColor
-        fontRed=settingData!!.data.fontRed
-        fontGreen=settingData!!.data.fontGreen
-        fontBlue=settingData!!.data.fontBlue
-        fontfamily=settingData!!.data.fontfamily
+        red=settingData.data.red
+        green=settingData.data.green
+        blue=settingData.data.blue
+        fontColor=settingData.data.fontColor
+        fontRed=settingData.data.fontRed
+        fontGreen=settingData.data.fontGreen
+        fontBlue=settingData.data.fontBlue
+        fontfamily=settingData.data.fontfamily
         product_template= settingData.data.product_template
     }
 

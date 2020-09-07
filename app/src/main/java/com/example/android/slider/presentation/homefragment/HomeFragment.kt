@@ -80,12 +80,7 @@ class HomeFragment: Fragment(){
                     viewpager!!.clipToPadding = false
                     val tabLayout = tabDots
                     tabLayout.setupWithViewPager(viewpager, true)
-
-
-
-
                 }
-
                 "2" -> {
                     viewpager!!.clipChildren = false
                     viewpager!!.clipToPadding = false
@@ -121,9 +116,7 @@ class HomeFragment: Fragment(){
                 }
                 "2" ->{
                     view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)
-                  //  view.recyclerView.layoutManager = GridLayoutManager(context,3)
                     view.recyclerView?.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
-
                 }
                 "3" ->{
                     view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)

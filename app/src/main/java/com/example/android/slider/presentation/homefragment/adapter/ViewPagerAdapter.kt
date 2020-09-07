@@ -48,9 +48,7 @@ class ViewPagerAdapter(
                     container, false)
                 loudImage(context,binding.imageSlider, sliderdata?.get(position)?.photo)
                 loadBackSliderImage(context,binding.imageSliderBackground, sliderdata?.get(position)?.photo)
-
                     container.addView(binding.root)
-
                    binding.settingusecase = settingData
                    binding.sliderusecase = sliderdata!!.get(position)
 

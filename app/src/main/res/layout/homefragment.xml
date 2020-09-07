@@ -40,7 +40,7 @@
         <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabDots"
                 android:layout_width="match_parent"
-                android:layout_height="10dp"
+                android:layout_height="2dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="@id/viewpager"
@@ -53,7 +53,7 @@
         <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabline2"
                 android:layout_width="match_parent"
-                android:layout_height="10dp"
+                android:layout_height="2dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="@id/viewpager"
                 app:layout_constraintEnd_toEndOf="@+id/viewpager"

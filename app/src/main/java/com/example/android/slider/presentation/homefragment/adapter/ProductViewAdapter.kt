@@ -36,9 +36,7 @@ class ProductViewAdapter (var data:List<CategoryUseCase> , var settingsUseCase: 
             "0" -> {
                 binding.constraintLayoutTamplate1.visibility = View.GONE
                 binding.constraintLayoutTamplate2.visibility = View.GONE
-
-                binding.constraintLayoutTamplate.setBackgroundResource(R.drawable.border_product)
-
+                binding.constraintLayoutTamplate.setBackgroundResource(R.drawable.round_border_product)
             }
             "1" -> {
                  binding.constraintLayoutTamplate1.visibility = View.GONE

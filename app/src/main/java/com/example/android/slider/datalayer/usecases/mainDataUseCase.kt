@@ -51,7 +51,6 @@ fun  convertFamousToFamousViewModel(famousproduct : List<product>):List<FamousPr
 data class FamousProductUseCase(val famousproduct: product? = null) : Serializable {
     var name: String? = null
     var price: Int? = null
-
     var photo: String? = null
 
     init {

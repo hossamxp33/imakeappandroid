@@ -23,16 +23,16 @@ data class SettingsUseCase(val settings: SettingsModel?=null):Serializable {
             if (data.type == "header") {
                 headerSettingUseCase =     HeaderSettingUseCase(data)
             } else
-                if (data?.type == "footer") {
+                if (data.type == "footer") {
                     footerSettingUseCase =    FooterSettingUseCase(data)
                 } else
-                    if (data?.type == "categorydesign") {
+                    if (data.type == "categorydesign") {
                         categoryDesignUseCase =    CategoryDesignUseCase(data)
                     }
-            if (data?.type == "productsetting") {
+            if (data.type == "productsetting") {
                 productSettingUseCase =  ProductSettingUseCase(data)
             } else
-                if (data?.type == "bodydesign") {
+                if (data.type == "bodydesign") {
                     bodyDesignUseCase =  BodyDesignUseCase(data)
                 }
         }

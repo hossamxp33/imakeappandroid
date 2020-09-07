@@ -6,16 +6,12 @@ import java.io.Serializable
 
 data class CategoryDesignUseCase(val settingData: SettingsModelData?=null): Serializable {
 
-
-
     var background: String? = "#fff"
     var red: String? = null
     var green: String? = null
     var blue: String? = null
-
     var border: String? = null
     var shadow: String? = null
-
     var fontColor: String? = null
     var fontRed: String? = null
     var fontGreen: String? = null
