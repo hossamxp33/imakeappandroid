@@ -25,7 +25,6 @@ fun getSettings(livedata: MutableLiveData<SettingsUseCase>?, errormessage: Mutab
         )
 }
 
-
     @SuppressLint("CheckResult")
     fun GetMainPageData(livedata: MutableLiveData<MainDataUseCase>?, errormessage: MutableLiveData<String>?){
         APIServices.create().GetMainPageData()

@@ -1,6 +1,7 @@
 package com.example.android.slider.presentation.homefragment
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,8 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.example.android.slider.datalayer.usecases.SettingsUseCase
-import com.example.android.slider.datalayer.usecases.SliderUseCase
 import com.example.android.slider.models.maindatamodel.Sliders
 import com.example.android.slider.models.settings.SettingsModelData
 import com.example.android.slider.presentation.homefragment.adapter.ProductViewAdapter
@@ -26,8 +25,7 @@ import kotlinx.android.synthetic.main.viewpagerimage.*
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.slider.R
-import com.example.android.slider.datalayer.usecases.CategoryUseCase
-import com.example.android.slider.datalayer.usecases.FamousProductUseCase
+import com.example.android.slider.datalayer.usecases.*
 import com.example.android.slider.presentation.homefragment.adapter.FamousProductAdapter
 
 import com.wajahatkarim3.easyflipviewpager.CardFlipPageTransformer
@@ -52,7 +50,7 @@ class HomeFragment: Fragment(){
     private var backimage = image_slider_background
 
     lateinit var viewModel: HomeViewModel
-    @SuppressLint("UnsafeExperimentalUsageError")
+    @SuppressLint("UnsafeExperimentalUsageError", "ResourceType")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view:View=inflater.inflate(com.example.android.slider.R.layout.homefragment,container,false)
 
@@ -72,6 +70,10 @@ class HomeFragment: Fragment(){
 
             settigs_data = SettingData
             settingUseCse = settigs_data!!
+           //// products_background
+//             val backcolor = settingUseCse!!.productSettingUseCase!!.background!!.toString()
+//              view.products_background.setBackground(backcolor)
+
             view.viewpager?.adapter = ViewPagerAdapter(activity!!,settingUseCse!!,sliderUseCse)
 
             when  (settingUseCse!!.headerSettingUseCase!!.slider_template){
@@ -121,21 +123,26 @@ class HomeFragment: Fragment(){
                 "3" ->{
                     view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)
                     view.recyclerView.layoutManager = GridLayoutManager(context,2)
-                }
+                }else -> {
+                view.recyclerView?.adapter= ProductViewAdapter(categoryUseCse!!,settingUseCse!!)
+                view.recyclerView.layoutManager = GridLayoutManager(context,2)
+            }
+
 
             }
 
             when (settingUseCse!!.productSettingUseCase!!.product_template){
-"1" -> {
-    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
-    view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
-}
+              "1" -> {
+              view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
+              view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
+                }
                 "2" -> {
                     view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
                     view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 2))
-
-
-                }
+                }else -> {
+                view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
+                view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 2))
+            }
             }
 
 

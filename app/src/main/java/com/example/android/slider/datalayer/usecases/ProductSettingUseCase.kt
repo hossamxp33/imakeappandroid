@@ -7,7 +7,7 @@ import java.io.Serializable
 data class ProductSettingUseCase(val settingData: SettingsModelData?=null): Serializable {
 
 
-    var background: String? = "#fff"
+    var background: String?  = null
     var red: String? = null
     var green: String? = null
     var blue: String? = null
@@ -19,12 +19,12 @@ data class ProductSettingUseCase(val settingData: SettingsModelData?=null): Seri
     var fontBlue: String? = null
     var title:String?=null
     var fontfamily: String? = null
-var product_template : String? = null
+     var product_template : String? = null
     init {
         title=settingData!!.data.title
         border=settingData!!.data.border
         shadow=settingData!!.data.shadow
-        background=settingData!!.data.background
+        background = settingData!!.data.background
         red=settingData.data.red
         green=settingData.data.green
         blue=settingData.data.blue

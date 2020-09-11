@@ -15,6 +15,7 @@ import com.example.android.slider.datalayer.usecases.SettingsUseCase
 
 import android.widget.LinearLayout
 import com.example.android.slider.R
+import com.example.android.slider.datalayer.usecases.CategoryDesignUseCase
 
 
 class ProductViewAdapter (var data:List<CategoryUseCase> , var settingsUseCase: SettingsUseCase) : RecyclerView.Adapter<CustomViewHolder>() {
@@ -23,7 +24,7 @@ class ProductViewAdapter (var data:List<CategoryUseCase> , var settingsUseCase: 
         return  data.size
     }
     override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
-        p0.bind(data.get(p1))
+        p0.bind(data.get(p1),settingsUseCase)
 
     }
 
@@ -72,9 +73,9 @@ class CustomViewHolder (
     private val binding:ProductviewBinding
 ) : RecyclerView.ViewHolder(binding.root){
 
-    fun bind( data: CategoryUseCase) {
+    fun bind( data: CategoryUseCase,settingsUseCase:SettingsUseCase) {
          binding.catusecase = data
-
+        binding.settingusecase = settingsUseCase
     }
 
 }

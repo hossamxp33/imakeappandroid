@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <data>
+                <variable
+                        name="settingusecase"
+                        type="com.example.android.slider.datalayer.usecases.SettingsUseCase"/>
+
+        </data>
 <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -65,7 +72,12 @@
                 app:tabIndicatorHeight="0dp"
 
                 />
-
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/products_background"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/viewpager"
+        android:layout_height="wrap_content">
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="0dp"
@@ -74,10 +86,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent=".20"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewpager"
                 app:layout_constraintWidth_default="percent"
                 app:layout_constraintWidth_percent=".9" />
-
+</androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -88,7 +99,7 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/products_background" />
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/product_recyclerView"
@@ -102,3 +113,4 @@
                />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+</layout>
