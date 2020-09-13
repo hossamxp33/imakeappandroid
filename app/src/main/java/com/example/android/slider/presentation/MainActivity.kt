@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(),Serializable {
         settings_data = intent?.getSerializableExtra(SplashUi.SETTINGUSECASEkEY) as SettingsUseCase
 
           val  homeFragment = HomeFragment()
-            val bundle = Bundle()
+          val bundle = Bundle()
             bundle.putSerializable("data", settings_data  as Serializable)
             homeFragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragment, homeFragment)
@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity(),Serializable {
                     buttomNavigationView.getMenu().getItem(1).setIcon(profileImage);
                 }
             })
+
         binding.settingusecase = settings_data
         binding.executePendingBindings()
 

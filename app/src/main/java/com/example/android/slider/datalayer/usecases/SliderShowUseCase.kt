@@ -46,8 +46,7 @@ fun loadBackSliderImage(context: Context, imag: ImageView, url: String?) {
 }
 @BindingAdapter("android:backgroundColor")
 fun ViewGroup.setBackground(backgroundColor: String) {
-
-    val color: Int = try {
+    val color= try {
         Color.parseColor(backgroundColor)
     } catch (e: Exception) {
         Color.parseColor("#$background")

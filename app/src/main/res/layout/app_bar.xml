@@ -3,7 +3,6 @@
 <data>
 
     <variable
-
             name="headersetting"
             type="com.example.android.slider.datalayer.usecases.HeaderSettingUseCase"/>
 
@@ -12,9 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layoutDirection="ltr"
-        android:backgroundColor = "@{headersetting.background}"
 
-        >
+        android:backgroundColor = "@{headersetting.background}">
 
     <ImageView
             android:id="@+id/imageView3"

@@ -82,7 +82,7 @@ dependencies {
     implementation 'com.chabbal:slidingdotsplash:1.0.2'
     implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
     implementation 'com.github.jrvansuita:GaussianBlur:+'
-
+    implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:2.0.0'
     implementation 'com.github.OCNYang:PageTransformerHelp:v1.0.1'
 

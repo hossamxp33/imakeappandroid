@@ -16,9 +16,6 @@ data class HeaderSettingUseCase(val settingData: SettingsModelData?=null): Seria
     var slider_template: String? = null
 
     init {
-
-
-
         background= settingData!!.data.background
         red= settingData!!.data.red
         green=settingData!!.data.green
