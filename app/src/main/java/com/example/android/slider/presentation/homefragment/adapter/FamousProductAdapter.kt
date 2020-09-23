@@ -25,13 +25,12 @@ class FamousProductAdapter(var data:List<FamousProductUseCase>, var settingsUseC
 
         val  binding: FamousProductviewBinding = DataBindingUtil.inflate (LayoutInflater.from(p0.context),
            R.layout.famous_productview,p0,false)
+
         when(settingsUseCase.productSettingUseCase!!.product_template){
             "1" -> {
 
-
             }
             "2" -> {
-
             }
             "3" -> {
 

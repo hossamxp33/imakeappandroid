@@ -32,6 +32,7 @@ import com.example.android.slider.presentation.homefragment.adapter.FamousProduc
 
 import androidx.core.content.ContextCompat
 import android.graphics.drawable.ShapeDrawable
+import android.os.Build
 import android.text.Layout
 import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
@@ -150,6 +151,10 @@ class HomeFragment: Fragment(){
             }
 
             when (settingUseCse!!.productSettingUseCase!!.product_template){
+                "0" -> {
+                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
+                    view.product_recyclerView.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
+                }
               "1" -> {
               view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
               view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))

@@ -1,9 +1,8 @@
 package com.example.android.slider.datalayer.usecases
 
-import com.example.android.slider.models.maindatamodel.Category
-import com.example.android.slider.models.maindatamodel.MainDataModel
-import com.example.android.slider.models.maindatamodel.Sliders
-import com.example.android.slider.models.maindatamodel.product
+import android.widget.RatingBar
+import com.bumptech.glide.Glide.init
+import com.example.android.slider.models.maindatamodel.*
 import java.io.Serializable
 
 
@@ -52,11 +51,14 @@ data class FamousProductUseCase(val famousproduct: product? = null) : Serializab
     var name: String? = null
     var price: Int? = null
     var photo: String? = null
+    var total_rating : List<Total_rating>? = null
 
     init {
         name = famousproduct!!.name
         price = famousproduct.price
         photo = famousproduct.img
+        total_rating = famousproduct.total_rating
+
     }
 
 }

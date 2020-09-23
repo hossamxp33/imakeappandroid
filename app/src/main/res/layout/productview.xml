@@ -17,6 +17,7 @@
             android:id="@+id/MainconstraintLayout"
             android:layout_height="wrap_content">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutTamplate"
             android:layout_width="70dp"
@@ -49,6 +50,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/product_image_tamplet1" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

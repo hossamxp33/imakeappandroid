@@ -12,75 +12,76 @@
                 type="com.example.android.slider.datalayer.usecases.FamousProductUseCase"/>
 
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
 
-        android:background="@drawable/productviewbackgrounf"
-        android:layout_margin="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    <ImageView
-            android:id="@+id/image_product"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:imageResource="@{famoususecase.photo}"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" android:layout_marginTop="8dp"/>
-
-    <TextView
-            android:id="@+id/text_description"
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@{famoususecase.name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_product" />
+            android:layout_margin="4dp"
+            android:background="@drawable/productviewbackgrounf">
 
-    <TextView
-            android:id="@+id/textView_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="@{famoususecase.price.toString()}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/text_Currency"
-            app:layout_constraintTop_toBottomOf="@+id/text_description" />
+        <ImageView
+                android:id="@+id/image_product"
+                android:layout_width="110dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="8dp"
+                app:imageResource="@{famoususecase.photo}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
-    <TextView
-            android:id="@+id/text_Currency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/currency"
-            app:layout_constraintEnd_toStartOf="@+id/textView_price"
-            app:layout_constraintStart_toEndOf="@+id/ratingBar"
-            app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+        <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="1dp"
+                android:numStars= "5"
+                android:rating="@{2}"
+                app:layout_constraintEnd_toStartOf="@+id/text_Currency"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_product" />
 
-    <RatingBar
-            android:id="@+id/ratingBar"
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintEnd_toStartOf="@+id/text_Currency"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/text_description" android:layout_marginStart="2dp"/>
+        <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="(15)"
+                app:layout_constraintLeft_toRightOf="@+id/ratingBar"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ratingBar" />
 
-    <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="(15)"
-            app:layout_constraintEnd_toStartOf="@+id/ratingBar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ratingBar"/>
+        <TextView
+                android:id="@+id/text_description"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{famoususecase.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+                android:id="@+id/textView_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@{famoususecase.price.toString()}"
+                app:layout_constraintStart_toEndOf="@+id/text_Currency"
+                app:layout_constraintTop_toBottomOf="@+id/text_description" />
+
+        <TextView
+                android:id="@+id/text_Currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/currency"
+                app:layout_constraintEnd_toStartOf="@+id/textView_price"
+                app:layout_constraintTop_toBottomOf="@+id/text_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
