@@ -55,6 +55,8 @@ class HomeFragment: Fragment(){
     var famousUseCse: List<FamousProductUseCase> ? = null
 
     var settingUseCse: SettingsUseCase? = null
+    var rate:  List<RatingProductUseCase> ? = null
+
     lateinit var settingsViewModel: SettingViewModel
     lateinit var mainViewModel : MainViewModel
     private var imslider: RoundedImageView? = null
@@ -78,6 +80,7 @@ class HomeFragment: Fragment(){
             sliderUseCse = it.Slider // 1
             categoryUseCse = it.Category // 2
             famousUseCse = it.FamousProduct // 3
+            rate = it.RatingBar
 
             settigs_data = SettingData
             settingUseCse = settigs_data!!
@@ -152,18 +155,18 @@ class HomeFragment: Fragment(){
 
             when (settingUseCse!!.productSettingUseCase!!.product_template){
                 "0" -> {
-                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
+                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!,rate!!)
                     view.product_recyclerView.setLayoutManager(LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true))
                 }
               "1" -> {
-              view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
+              view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!,rate!!)
               view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 4))
                 }
                 "2" -> {
-                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
+                    view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!,rate!!)
                     view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 2))
                 }else -> {
-                view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!)
+                view.product_recyclerView?.adapter= FamousProductAdapter(famousUseCse!!,settingUseCse!!,rate!!)
                 view.product_recyclerView.setLayoutManager(GridLayoutManager(getContext(), 2))
             }
             }

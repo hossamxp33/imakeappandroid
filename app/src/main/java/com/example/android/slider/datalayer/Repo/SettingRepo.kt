@@ -45,11 +45,6 @@ fun getSettings(livedata: MutableLiveData<SettingsUseCase>?, errormessage: Mutab
     }
 
 
-
-
-
-
-
     fun postError(throwable: Throwable, errormessage: MutableLiveData<String>?) {
         errormessage?.postValue(throwable.toString())
     }

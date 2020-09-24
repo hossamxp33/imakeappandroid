@@ -10,6 +10,9 @@
         <variable
                 name="famoususecase"
                 type="com.example.android.slider.datalayer.usecases.FamousProductUseCase"/>
+        <variable
+                name="ratingusecase"
+                type="com.example.android.slider.datalayer.usecases.RatingProductUseCase"/>
 
     </data>
 
@@ -37,8 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="1dp"
+                android:rating="@{ratingusecase.stars}"
                 android:numStars= "5"
-                android:rating="@{2}"
                 app:layout_constraintEnd_toStartOf="@+id/text_Currency"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_product" />

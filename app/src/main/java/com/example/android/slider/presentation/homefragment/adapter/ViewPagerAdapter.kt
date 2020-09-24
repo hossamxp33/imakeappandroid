@@ -15,14 +15,11 @@ import com.example.android.slider.R
 import com.example.android.slider.databinding.SliderTamplet1Binding
 import com.example.android.slider.databinding.SliderTamplet2Binding
 import com.example.android.slider.databinding.ViewpagerimageBinding
-import com.example.android.slider.datalayer.usecases.MainDataUseCase
 import com.example.android.slider.datalayer.usecases.SettingsUseCase
 import com.example.android.slider.datalayer.usecases.SliderUseCase
 import com.example.android.slider.datalayer.usecases.loadBackSliderImage
 import com.example.android.slider.presentation.loudImage
-import com.google.android.material.imageview.ExperimentalImageView
-import com.google.android.material.imageview.ShapeableImageView
-import com.google.android.material.shape.CornerFamily
+
 
 
 class ViewPagerAdapter(
